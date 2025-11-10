@@ -43,6 +43,11 @@ supporting critical problem resolution.
 
 ## Projects
 
+### SpyderStack ( Apr 2025 - Present )
+- Built a distributed web crawler using goroutines and Redis pub/sub to enable scalable, concurrent scraping of job listings.
+- Achieved 100K+ job entries crawled daily from over 200+ company career pages in under 15 minutes using an 8-core setup.
+- Optimized data ingestion pipeline with batch based lazy MongoDB writes and a lightweight scraping framework, improving throughput and reducing system load.
+
 ### United States Space Force (USSF) GRC Control (Aug 2024 - Dec 2024)
 - Developed a Ruby on Rails-based SaaS application for the USSF, enabling cybersecurity teams to efficiently scan and assess Docker images for vulnerabilities, ensuring compliance with NIST SP800-53 controls.
 - Implemented advanced access control and versioning features, allowing USSF to track and manage Docker image vulnerabilities over time, ensuring continuous GRC compliance and security across environments.
@@ -68,6 +73,10 @@ mean absolute percentage error.
 encryption algorithms involving bit manipulation techniques.
 - Ensured data integrity by storing encrypted images in PNG format, preventing data loss during decryption. Achieved
 high-quality image embedding with minimal visual distortion, verified through PSNR analysis.
+
+## Achievements
+- Gold Medal for securing 8th rank in Electronics \& Communication Department, PES University.
+- Second Place in Texas A\&M’s Tidal Hackathon among 300 student participants for building a contextual E-Reader.
 
 ## Leadership
 
