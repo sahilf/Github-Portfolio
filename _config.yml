@@ -1,5 +1,25 @@
 title: Sahil Fayaz
+description: Software Development Engineer | Master's Student at Texas A&M University
 # logo: /assets/img/headshot_circle.png
-#description: text below image
-#show_downloads: true
+# Uncomment above and add your photo to assets/img/ folder
+
+# Social Links
+email: sahilf2085@gmail.com
+linkedin_username: sahil-f
+github_username: sahilfayaz
+
+# Theme
 theme: jekyll-theme-minimal
+
+# Google Analytics (optional - add your ID)
+# google_analytics: UA-XXXXXXXXX-X
+
+# SEO
+lang: en-US
+author: Sahil Fayaz
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
