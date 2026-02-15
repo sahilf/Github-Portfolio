@@ -2,14 +2,24 @@
 layout: default
 ---
 
-<div class="hero-section">
+<nav>
+  <ul>
+    <li><a href="#home" class="active">HOME</a></li>
+    <li><a href="#experience">EXPERIENCE</a></li>
+    <li><a href="#projects">PROJECTS</a></li>
+    <li><a href="#education">EDUCATION</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+</nav>
+
+<div class="hero-section" id="home">
   <div class="hero-content">
-    <h1 class="hero-title">Hi, I'm Sahil Fayaz</h1>
+    <h1 class="hero-title">Sahil Fayaz</h1>
     <p class="hero-subtitle">Software Development Engineer | Master's Student at Texas A&M University</p>
-    <p class="hero-description">
+    <!-- <p class="hero-description">
       I build scalable software solutions with expertise in Java, Spring Boot, and cloud technologies. 
       Passionate about creating impactful applications and solving complex problems.
-    </p>
+    </p> -->
     <div class="hero-buttons">
       <a href="#experience" class="btn btn-primary">View My Work</a>
       <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -22,13 +32,15 @@ layout: default
     <h2 class="section-title">About Me</h2>
     <div class="about-content">
       <p>
-        I'm a Software Development Engineer with 3+ years of experience building enterprise solutions at Amadeus Software Labs. 
-        Currently pursuing my Master's in Computer Science at Texas A&M University, I specialize in developing REST APIs, 
-        microservices architecture, and cloud-based solutions.
+        I'm a software engineer who loves building things that matter. With over 3 years at Amadeus Software Labs, 
+        I've worked on everything from enterprise-scale asset management systems to security compliance tools that help 
+        teams stay safe and efficient. Now, I'm sharpening my skills as a Master's student in Computer Science at Texas A&M University.
       </p>
       <p>
-        My work focuses on creating secure, scalable applications that solve real business problems. I've led cloud migration 
-        projects, developed compliance monitoring tools, and built graph-based analysis systems used by development teams.
+        What drives me? Solving complex problems with clean, scalable solutions. Whether it's architecting microservices, 
+        migrating legacy apps to the cloud, or building AI-powered tools during hackathons, I thrive on challenges that push 
+        me to learn and grow. I believe great software isn't just about code—it's about understanding the problem, 
+        collaborating with teams, and delivering real impact.
       </p>
     </div>
   </div>
@@ -43,38 +55,53 @@ layout: default
         <div class="skill-tags">
           <span class="tag">Java</span>
           <span class="tag">Python</span>
+          <span class="tag">Golang</span>
+          <span class="tag">C</span>
+          <span class="tag">C++</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
           <span class="tag">SQL</span>
-          <span class="tag">HTML/CSS</span>
-          <span class="tag">Matlab</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Shell Script</span>
         </div>
       </div>
       <div class="skill-category">
-        <h3>Frameworks & Technologies</h3>
+        <h3>Frameworks</h3>
         <div class="skill-tags">
           <span class="tag">Spring Boot</span>
-          <span class="tag">Microservices</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">Spring Security</span>
+          <span class="tag">Spring MVC</span>
+          <span class="tag">Node.js</span>
           <span class="tag">Angular</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3>Databases</h3>
-        <div class="skill-tags">
-          <span class="tag">MySQL</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Neo4j</span>
-          <span class="tag">MariaDB</span>
+          <span class="tag">React</span>
+          <span class="tag">Ruby on Rails</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Numpy</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Hibernate</span>
+          <span class="tag">Apache Kafka</span>
+          <span class="tag">Redis</span>
+          <span class="tag">Elasticsearch</span>
+          <span class="tag">JUnit</span>
+          <span class="tag">Mockito</span>
+          <span class="tag">Jira</span>
+          <span class="tag">Confluence</span>
         </div>
       </div>
       <div class="skill-category">
         <h3>Tools & Platforms</h3>
         <div class="skill-tags">
           <span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span>
           <span class="tag">Jenkins</span>
-          <span class="tag">Azure</span>
+          <span class="tag">Git</span>
           <span class="tag">GitHub</span>
-          <span class="tag">JIRA</span>
+          <span class="tag">Bitbucket</span>
+          <span class="tag">Splunk</span>
+          <span class="tag">Azure</span>
+          <span class="tag">AWS</span>
+          <span class="tag">GCP</span>
+          <span class="tag">Heroku</span>
         </div>
       </div>
     </div>
@@ -92,10 +119,10 @@ layout: default
           <h4>Amadeus Software Labs India Pvt Ltd, Bangalore</h4>
           <p class="timeline-date">April 2023 - July 2024</p>
           <ul>
-            <li>Led the development of a Software Asset Management enterprise solution with security compliance monitoring</li>
-            <li>Built REST APIs using Spring Boot enabling PCI and PII compliance for security teams</li>
-            <li>Spearheaded migration of two legacy applications to Azure PaaS with SSO integration</li>
-            <li>Earned quarterly award for leading cloud migration efforts and supporting team growth</li>
+            <li>Led cross functional agile teams to design and deliver cloud native solutions, enhancing security and reducing compliance gaps across engineering units.</li>
+            <li>Developed scalable REST APIs improving audit response time by 40\% and automating compliance checks for PCI and PII standards.</li>
+            <li>Migrated legacy platforms to Azure PaaS, optimizing infrastructure and integrating enterprise grade Single Sign On (SSO) using Azure OAuth.</li>
+            <li>Earned quarterly award for leading cloud migration efforts and supporting team growth.</li>
           </ul>
         </div>
       </div>
@@ -107,9 +134,9 @@ layout: default
           <h4>Amadeus Software Labs India Pvt Ltd, Bangalore</h4>
           <p class="timeline-date">August 2021 - March 2023</p>
           <ul>
-            <li>Built ETL jobs for graph-based analysis tool used by development and architecture teams</li>
-            <li>Collaborated on IT Debt project to identify outdated technologies and facilitate migrations</li>
-            <li>Recognized with 2 quarterly awards for optimal solutions and critical problem resolution</li>
+            <li>Built ETL jobs for an analysis software tool, a graph-based tool for internal development, governance, and architecture teams. Modified the graphical view to better represent relationships between products.</li>
+            <li>Collaborated with architects to retire deprecated technologies, driving modernization and aligning with tech lifecycle policies.</li>
+            <li>Recognized with 2 quarterly awards for optimal solutions and critical problem resolution.</li>
           </ul>
         </div>
       </div>
@@ -136,17 +163,107 @@ layout: default
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-header">
+          <h3>SpyderStack</h3>
+          <span class="project-date">Apr 2025 - Present</span>
+        </div>
+        <p class="project-description">
+          Built a distributed web crawler using goroutines and Redis pub/sub to enable scalable, concurrent scraping of job listings.
+          Achieved 100K+ job entries crawled daily from over 200+ company career pages in under 15 minutes using an 8-core setup.
+          Optimized data ingestion pipeline with batch based lazy MongoDB writes and a lightweight scraping framework, improving throughput and reducing system load.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Golang</span>
+          <span class="tag">Redis</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Web Crawler</span>
+          <span class="tag">Distributed Systems</span>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <h3>United States Space Force (USSF) GRC Control</h3>
+          <span class="project-date">Aug 2024 - Dec 2024</span>
+        </div>
+        <p class="project-description">
+          Developed a Ruby on Rails based SaaS application for the USSF, enabling users to efficiently scan and assess Docker images ensuring compliance with NIST SP800-53 controls.
+          Implemented access control, versioning features and accessibility, allowing USSF to track and manage Docker image vulnerabilities across environments.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Ruby on Rails</span>
+          <span class="tag">Docker</span>
+          <span class="tag">SaaS</span>
+          <span class="tag">Security</span>
+          <span class="tag">Compliance</span>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <h3>LoreBubbl : AI Powered E-Reader</h3>
+          <span class="project-date">Fall 2024</span>
+        </div>
+        <p class="project-description">
+          Built an AI-powered e-reader during the Tidal Hackathon at Texas A&M that provides contextual help while reading. 
+          Users can highlight text to get instant summaries or explanations of characters, situations, or concepts. 
+          Developed both frontend and backend integration using Flutter for the mobile app and Python (Flask) for the backend, 
+          leveraging LLMs through AWS Bedrock with a custom RAG setup for intelligent context retrieval.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Flutter</span>
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">AWS Bedrock</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">RAG</span>
+        </div>
+        <a href="https://github.com/sahilf/Text-Referencer" target="_blank" class="project-link">
+          View on GitHub →
+        </a>
+      </div>
+    
+      
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Calorie Prediction from Food Images</h3>
+          <span class="project-date">Aug 2024 - Dec 2024</span>
+        </div>
+        <p class="project-description">
+          Developed a deep learning model to predict calorie counts from lunch food images using multimodal data including 
+          continuous glucose monitoring (CGM), demographic information, microbiome data, and food images. Implemented a 
+          three-step pipeline: (1) training image embeddings with MSE loss, (2) generating CGM embeddings, and (3) applying 
+          contrastive learning with CLIP models to fuse visual and numerical embeddings. Combined fused embeddings with 
+          demographic data through a fully connected neural network, achieving robust predictions evaluated using RMSRE.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Deep Learning</span>
+          <span class="tag">CLIP</span>
+          <span class="tag">Multimodal ML</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">PyTorch</span>
+        </div>
+      </div>
+
+            <div class="project-card">
+        <div class="project-header">
           <h3>Automation In Agricultural Field Using Decentralized Framework</h3>
           <span class="project-date">Aug 2020 - May 2021</span>
         </div>
         <p class="project-description">
-          Designed a decentralized system where bots autonomously allocate areas, generate paths, and traverse 
-          designated zones. Introduced a novel path-planning method for optimal navigation efficiency within a polygon.
+          Developed a composite methodology to autonomously coordinate and control multiple robots deployed in agricultural 
+          fields, addressing the need for minimal human intervention during COVID-19. Implemented a kinematic model defining 
+          differential drive robot dynamics and proposed a novel path planning algorithm combining Voronoi diagrams and 
+          Convex Hull techniques for efficient navigation within allocated areas. Investigated two network topologies to 
+          maintain connected graphs between robots while minimizing communication overhead. Demonstrated the framework's 
+          efficacy through comprehensive simulations, achieving optimal autonomous area allocation and traversal.
         </p>
         <div class="project-tags">
           <span class="tag">Python</span>
           <span class="tag">Path Planning</span>
+          <span class="tag">Voronoi Diagrams</span>
+          <span class="tag">Robotics</span>
           <span class="tag">Automation</span>
+          <span class="tag">Multi-Agent Systems</span>
         </div>
         <a href="https://ieeexplore.ieee.org/document/9622347" target="_blank" class="project-link">
           View Publication →
@@ -155,33 +272,23 @@ layout: default
       
       <div class="project-card">
         <div class="project-header">
-          <h3>Student Performance Prediction</h3>
-          <span class="project-date">Feb 2020 - May 2020</span>
-        </div>
-        <p class="project-description">
-          Developed a linear regression model from scratch using gradient descent, implementing forward propagation, 
-          cost function computation, and weight updates without using built-in Python functions.
-        </p>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Linear Regression</span>
-        </div>
-      </div>
-      
-      <div class="project-card">
-        <div class="project-header">
           <h3>Image Steganography</h3>
           <span class="project-date">Oct 2019 - Dec 2019</span>
         </div>
         <p class="project-description">
-          Developed an image steganography system to securely embed and retrieve text data within images using 
-          custom encryption algorithms and bit manipulation techniques.
+          Developed a secure image steganography system to covertly embed and retrieve text data within images using 
+          Least Significant Bit (LSB) manipulation technique. Implemented custom encryption algorithms combining 
+          Caesar cipher and transposition cipher to ensure data confidentiality before embedding. Built encoding and 
+          decoding modules that process pixel data to hide messages imperceptibly within image files while maintaining 
+          visual integrity. Achieved seamless data extraction with zero data loss, demonstrating robust security for 
+          covert communication applications.
         </p>
         <div class="project-tags">
           <span class="tag">Python</span>
           <span class="tag">Cryptography</span>
           <span class="tag">Image Processing</span>
+          <span class="tag">LSB Encoding</span>
+          <span class="tag">PIL</span>
         </div>
       </div>
     </div>
@@ -193,9 +300,11 @@ layout: default
     <h2 class="section-title">Education</h2>
     <div class="education-grid">
       <div class="education-card">
-        <h3>Master of Computer Science</h3>
+        <h3>Masters</h3>
         <h4>Texas A&M University</h4>
         <p class="education-date">August 2024 - Present</p>
+        <p class="education-gpa">GPA: 4.0/4.0</p>
+        <p class="education-major">Computer Science</p>
       </div>
       <div class="education-card">
         <h3>Bachelor of Technology</h3>
@@ -218,9 +327,22 @@ layout: default
       <ul>
         <li>Led logistics for multiple projects including SUKH (book fundraiser), The Gutsy Entrepreneur (business ideathon), 
             and Trek To Educate (computer literacy fundraiser)</li>
-        <li>Volunteered for Polio Vaccination Drive on National Immunisation Day</li>
+        <li>Organised Polio Vaccination Drive on National Immunisation Day</li>
         <li>Coordinated over 50 events in 2020-21 and maintained comprehensive event reports</li>
         <li>Contributed to setting up a computer lab in a rural school through fundraising efforts</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="achievements" class="section">
+  <div class="container">
+    <h2 class="section-title">Achievements</h2>
+    <div class="leadership-content">
+      <ul>
+        <li>🥇 Gold Medal for securing 8th rank in Electronics & Communication Department, PES University</li>
+        <li>🥈 Second Place in Texas A&M's Tidal Hackathon among 300 student participants for building a contextual E-Reader</li>
+        <li>🎓 Scholarship for being in top 5% of class, PES University</li>
       </ul>
     </div>
   </div>
@@ -235,15 +357,15 @@ layout: default
         Feel free to reach out!
       </p>
       <div class="contact-links">
-        <a href="mailto:sahilf2085@gmail.com" class="contact-link">
+        <a href="mailto:sahil.fayaz8899@gmail.com" class="contact-link">
           <span class="contact-icon">✉️</span>
-          <span>sahilf2085@gmail.com</span>
+          <span>MAIl</span>
         </a>
         <a href="https://www.linkedin.com/in/sahil-f/" target="_blank" class="contact-link">
           <span class="contact-icon">💼</span>
           <span>LinkedIn Profile</span>
         </a>
-        <a href="https://github.com/sahilfayaz" target="_blank" class="contact-link">
+        <a href="https://github.com/sahilf" target="_blank" class="contact-link">
           <span class="contact-icon">💻</span>
           <span>GitHub Profile</span>
         </a>
@@ -252,8 +374,50 @@ layout: default
   </div>
 </section>
 
+<div class="scroll-indicator"></div>
+
 <footer class="footer">
   <div class="container">
-    <p>&copy; 2026 Sahil Fayaz. Built with Jekyll and ❤️</p>
+    <p>&copy; 2026 Sahil Fayaz. Built with Jekyll</p>
   </div>
 </footer>
+
+<script>
+// Smooth scrolling for navigation
+document.querySelectorAll('nav a').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    // Update active state
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Scroll indicator
+document.querySelector('.scroll-indicator').addEventListener('click', function() {
+  window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+});
+
+// Update nav on scroll
+window.addEventListener('scroll', function() {
+  const sections = document.querySelectorAll('section[id], .hero-section[id]');
+  const scrollPos = window.scrollY + 100;
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+    
+    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      const activeLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+  });
+});
+</script>
