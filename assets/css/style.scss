@@ -1376,6 +1376,22 @@ nav a.active::after {
   .contact-icon {
     font-size: 1.2rem;
   }
+
+  .projects-carousel-container {
+    padding: 0 40px;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+
+  .project-card {
+    min-width: 300px;
+    max-width: 300px;
+    padding: 20px;
+  }
 }
 
 /* Smooth Scrolling */
