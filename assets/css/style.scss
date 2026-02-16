@@ -44,16 +44,178 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(255, 0, 0, 0.05) 0%, transparent 50%);
+  background: radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(255, 0, 0, 0.08) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+/* Animated Particles Background */
+.particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particles-bg::before,
+.particles-bg::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 0, 0, 0.5);
+  border-radius: 50%;
+  box-shadow: 
+    100px 200px 0 rgba(255, 0, 0, 0.3),
+    300px 100px 0 rgba(255, 0, 0, 0.4),
+    500px 400px 0 rgba(255, 0, 0, 0.2),
+    700px 150px 0 rgba(255, 0, 0, 0.5),
+    900px 350px 0 rgba(255, 0, 0, 0.3),
+    200px 500px 0 rgba(255, 0, 0, 0.4),
+    400px 300px 0 rgba(255, 0, 0, 0.2),
+    600px 600px 0 rgba(255, 0, 0, 0.5),
+    800px 250px 0 rgba(255, 0, 0, 0.3),
+    1000px 450px 0 rgba(255, 0, 0, 0.4);
+  animation: particleFloat 20s linear infinite;
+}
+
+.particles-bg::after {
+  animation-delay: -10s;
+  animation-duration: 25s;
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-1000px) translateX(100px); opacity: 0; }
+}
+
+/* Asteroids */
+.asteroid {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.asteroid::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.3) 0%, rgba(100, 0, 0, 0.5) 100%);
+  border-radius: 40% 60% 50% 50%;
+  box-shadow: 
+    inset -5px -5px 10px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 0, 0, 0.4),
+    0 0 40px rgba(255, 0, 0, 0.2);
+  animation: asteroidRotate 4s linear infinite;
+}
+
+.asteroid::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 0, 0, 0.2);
+  border-radius: 50%;
+  top: 10px;
+  left: 5px;
+  box-shadow: 
+    15px 5px 0 rgba(255, 0, 0, 0.15),
+    5px 20px 0 rgba(255, 0, 0, 0.1);
+}
+
+@keyframes asteroidRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.asteroid-1 {
+  top: -100px;
+  left: -100px;
+  animation: asteroidMove1 25s linear infinite;
+}
+
+.asteroid-2 {
+  top: -150px;
+  right: -150px;
+  animation: asteroidMove2 30s linear infinite 5s;
+}
+
+.asteroid-3 {
+  top: 50%;
+  left: -200px;
+  animation: asteroidMove3 35s linear infinite 10s;
+}
+
+@keyframes asteroidMove1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(120vw, 100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes asteroidMove2 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-120vw, 110vh) rotate(-720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes asteroidMove3 {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(130vw, 20vh) rotate(360deg) scale(1.2);
+    opacity: 0;
+  }
 }
 
 /* Navigation */
@@ -93,6 +255,10 @@ nav a {
   position: relative;
 }
 
+nav a:visited {
+  color: white;
+}
+
 nav a:hover,
 nav a.active {
   color: var(--primary-color);
@@ -124,26 +290,24 @@ nav a.active::after {
   margin-bottom: 0;
   position: relative;
   border-bottom: 3px solid var(--primary-color);
+  overflow: hidden;
 }
 
 .hero-section::before {
-  content: '+';
+  content: '';
   position: absolute;
-  top: 40px;
-  left: 5%;
-  font-size: 32px;
-  color: var(--primary-color);
-  animation: pulse 3s ease-in-out infinite;
+  top: 20%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+  animation: float 20s ease-in-out infinite;
 }
 
-.hero-section::after {
-  content: '+';
-  position: absolute;
-  top: 60px;
-  left: 5.5%;
-  font-size: 32px;
-  color: white;
-  animation: pulse 3s ease-in-out infinite 0.5s;
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -30px) rotate(120deg); }
+  66% { transform: translate(-20px, 20px) rotate(240deg); }
 }
 
 .hero-content {
@@ -159,7 +323,6 @@ nav a.active::after {
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--primary-color);
-  text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
 }
 
 .hero-subtitle {
@@ -171,6 +334,22 @@ nav a.active::after {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: white;
+}
+
+.open-to-work-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(0, 200, 0, 0.15);
+  border: 2px solid #00ff00;
+  border-radius: 25px;
+  color: #00ff00;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 10px 0 20px 0;
+  animation: fadeInUp 0.8s ease 0.3s, pulse 2s ease-in-out infinite;
+  animation-fill-mode: both;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
 }
 
 .hero-description {
@@ -273,24 +452,11 @@ nav a.active::after {
   text-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 5px;
-  background: var(--primary-color);
-  border-radius: 0;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-}
-
 /* About Section */
 .about-content {
   max-width: 800px;
   margin: 0 auto;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   line-height: 1.8;
   color: var(--text-light);
 }
@@ -302,15 +468,15 @@ nav a.active::after {
 /* Skills Section */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .skill-category {
   background: var(--bg-alt);
-  padding: 30px;
+  padding: 20px 25px;
   border-radius: 0;
   border: 2px solid var(--border-color);
   box-shadow: var(--shadow-md);
@@ -330,8 +496,8 @@ nav a.active::after {
 }
 
 .skill-category:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3);
   border-color: var(--primary-color);
 }
 
@@ -341,7 +507,7 @@ nav a.active::after {
 
 .skill-category h3 {
   font-size: 1.5rem;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -363,7 +529,6 @@ nav a.active::after {
   font-size: 0.9rem;
   border: 2px solid var(--border-color);
   transition: all 0.2s ease;
-  text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
 }
@@ -458,15 +623,64 @@ nav a.active::after {
   margin-bottom: 10px;
   color: var(--text-light);
   line-height: 1.6;
+  font-size: 1.15rem;
 }
 
 /* Projects Grid */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
+.projects-carousel-container {
+  position: relative;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 60px;
+}
+
+.projects-carousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  padding: 20px 0;
+}
+
+.projects-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-color);
+  color: black;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.carousel-btn:hover {
+  background: var(--secondary-color);
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
 }
 
 .project-card {
@@ -480,6 +694,9 @@ nav a.active::after {
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  min-width: 500px;
+  max-width: 500px;
+  flex-shrink: 0;
 }
 
 .project-card::before {
@@ -526,6 +743,7 @@ nav a.active::after {
   line-height: 1.7;
   margin-bottom: 20px;
   flex-grow: 1;
+  font-size: 1.1rem;
 }
 
 .project-tags {
@@ -591,17 +809,20 @@ nav a.active::after {
 .education-date {
   color: var(--text-light);
   margin-bottom: 8px;
+  font-size: 1.1rem;
 }
 
 .education-gpa {
   color: var(--success-color);
   font-weight: 600;
   margin-bottom: 5px;
+  font-size: 1.15rem;
 }
 
 .education-major {
   color: var(--text-light);
   font-style: italic;
+  font-size: 1.1rem;
 }
 
 /* Leadership Section */
@@ -641,6 +862,7 @@ nav a.active::after {
   margin-bottom: 12px;
   color: var(--text-light);
   line-height: 1.7;
+  font-size: 1.15rem;
 }
 
 /* Contact Section */
@@ -651,7 +873,7 @@ nav a.active::after {
 }
 
 .contact-intro {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: var(--text-light);
   margin-bottom: 40px;
   line-height: 1.8;
@@ -788,7 +1010,21 @@ nav a.active::after {
     left: -36px;
   }
   
-  .projects-grid,
+  .projects-carousel-container {
+    padding: 0 50px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .project-card {
+    min-width: 400px;
+    max-width: 400px;
+  }
+  
   .education-grid {
     grid-template-columns: 1fr;
   }
@@ -831,6 +1067,22 @@ nav a.active::after {
   .btn {
     width: 100%;
     max-width: 250px;
+  }
+
+  .projects-carousel-container {
+    padding: 0 40px;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+
+  .project-card {
+    min-width: 300px;
+    max-width: 300px;
+    padding: 20px;
   }
 }
 
