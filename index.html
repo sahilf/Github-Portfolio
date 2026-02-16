@@ -2,9 +2,15 @@
 layout: default
 ---
 
+<div class="particles-bg"></div>
+<div class="asteroid asteroid-1"></div>
+<div class="asteroid asteroid-2"></div>
+<div class="asteroid asteroid-3"></div>
+
 <nav>
   <ul>
     <li><a href="#home" class="active">HOME</a></li>
+    <li><a href="#skills">SKILLS</a></li>
     <li><a href="#experience">EXPERIENCE</a></li>
     <li><a href="#projects">PROJECTS</a></li>
     <li><a href="#education">EDUCATION</a></li>
@@ -22,16 +28,16 @@ layout: default
       I build scalable software solutions with expertise in Java, Spring Boot, and cloud technologies. 
       Passionate about creating impactful applications and solving complex problems.
     </p> -->
-    <div class="hero-buttons">
+    <!-- <div class="hero-buttons">
       <a href="#experience" class="btn btn-primary">View My Work</a>
       <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-    </div>
+    </div> -->
   </div>
 </div>
 
 <section id="about" class="section">
   <div class="container">
-    <h2 class="section-title">About Me</h2>
+    <!-- <h2 class="section-title">About Me</h2> -->
     <div class="about-content">
       <p>
         I'm a software engineer who loves building things that matter. With over 3 years at Amadeus Software Labs, 
@@ -312,14 +318,14 @@ layout: default
     <div class="education-grid">
       <div class="education-card">
         <h3>Masters</h3>
-        <h4>Texas A&M University</h4>
-        <p class="education-date">August 2024 - Present</p>
+        <h4>Texas A&M University, College Station, TX</h4>
+        <p class="education-date">August 2024 - May 2026</p>
         <p class="education-gpa">GPA: 4.0/4.0</p>
         <p class="education-major">Computer Science</p>
       </div>
       <div class="education-card">
         <h3>Bachelor of Technology</h3>
-        <h4>PES University</h4>
+        <h4>PES University, Bangalore, IN</h4>
         <p class="education-date">August 2017 - May 2021</p>
         <p class="education-gpa">GPA: 9.24/10</p>
         <p class="education-major">Electronics and Communication Engineering</p>
@@ -435,20 +441,48 @@ function resetAutoScroll() {
   autoScrollInterval = setInterval(autoScrollProjects, 5000);
 }
 
-// Start auto-scroll when page loads
-window.addEventListener('load', function() {
-  resetAutoScroll();
-});
+// Check if projects section is in view
+function isProjectsInView() {
+  const projectsSection = document.getElementById('projects');
+  if (!projectsSection) return false;
+  
+  const rect = projectsSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  
+  // Check if at least 30% of the section is visible
+  return (rect.top <= windowHeight * 0.7 && rect.bottom >= windowHeight * 0.3);
+}
+
+// Start/stop auto-scroll based on section visibility
+function checkProjectsVisibility() {
+  if (isProjectsInView()) {
+    if (!autoScrollInterval) {
+      resetAutoScroll();
+    }
+  } else {
+    clearInterval(autoScrollInterval);
+    autoScrollInterval = null;
+  }
+}
+
+// Check on scroll
+window.addEventListener('scroll', checkProjectsVisibility);
+
+// Initial check on load
+window.addEventListener('load', checkProjectsVisibility);
 
 // Pause auto-scroll on hover
 const carousel = document.querySelector('.projects-carousel');
 if (carousel) {
   carousel.addEventListener('mouseenter', function() {
     clearInterval(autoScrollInterval);
+    autoScrollInterval = null;
   });
   
   carousel.addEventListener('mouseleave', function() {
-    resetAutoScroll();
+    if (isProjectsInView()) {
+      resetAutoScroll();
+    }
   });
 }
 
@@ -457,16 +491,26 @@ window.addEventListener('scroll', function() {
   const sections = document.querySelectorAll('section[id], .hero-section[id]');
   const scrollPos = window.scrollY + 100;
   
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-    const sectionId = section.getAttribute('id');
-    
-    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-      const activeLink = document.querySelector(`nav a[href="#${sectionId}"]`);
-      if (activeLink) activeLink.classList.add('active');
-    }
-  });
+  // Check if at bottom of page
+  const isAtBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
+  
+  if (isAtBottom) {
+    // Highlight the last section (Contact)
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    const contactLink = document.querySelector('nav a[href="#contact"]');
+    if (contactLink) contactLink.classList.add('active');
+  } else {
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+      
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        const activeLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }
 });
 </script>
