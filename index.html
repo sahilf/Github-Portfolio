@@ -14,8 +14,10 @@ layout: default
 
 <div class="hero-section" id="home">
   <div class="hero-content">
-    <h1 class="hero-title">Sahil Fayaz</h1>
-    <p class="hero-subtitle">Software Development Engineer | Master's Student at Texas A&M University</p>
+    <h1 class="hero-title" style="color: white;">Sahil Fayaz</h1>
+    <p class="hero-subtitle" style="color: red;">College Station, TX</p>
+    <p class="hero-subtitle">Master's Student at Texas A&M University</p>
+    <span class="open-to-work-badge">🟢 Open to Work</span>
     <!-- <p class="hero-description">
       I build scalable software solutions with expertise in Java, Spring Boot, and cloud technologies. 
       Passionate about creating impactful applications and solving complex problems.
@@ -166,7 +168,9 @@ layout: default
 <section id="projects" class="section section-alt">
   <div class="container">
     <h2 class="section-title">Featured Projects</h2>
-    <div class="projects-grid">
+    <div class="projects-carousel-container">
+      <button class="carousel-btn prev-btn" onclick="scrollProjects(-1)">‹</button>
+      <div class="projects-carousel">
       <div class="project-card">
         <div class="project-header">
           <h3>SpyderStack</h3>
@@ -297,6 +301,7 @@ layout: default
           <span class="tag">PIL</span>
         </div>
       </div>
+      <button class="carousel-btn next-btn" onclick="scrollProjects(1)">›</button>
     </div>
   </div>
 </section>
@@ -395,6 +400,57 @@ document.querySelectorAll('nav a').forEach(anchor => {
     this.classList.add('active');
   });
 });
+
+// Projects carousel
+let autoScrollInterval;
+
+function scrollProjects(direction) {
+  const carousel = document.querySelector('.projects-carousel');
+  const cardWidth = carousel.querySelector('.project-card').offsetWidth;
+  const gap = 30; // gap between cards
+  const scrollAmount = direction * (cardWidth + gap);
+  
+  // Check if at the end, loop back to start
+  if (direction > 0 && carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+  } else if (direction < 0 && carousel.scrollLeft <= 0) {
+    carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' });
+  } else {
+    carousel.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+  
+  // Reset auto-scroll timer when manually navigating
+  resetAutoScroll();
+}
+
+function autoScrollProjects() {
+  scrollProjects(1);
+}
+
+function resetAutoScroll() {
+  clearInterval(autoScrollInterval);
+  autoScrollInterval = setInterval(autoScrollProjects, 5000);
+}
+
+// Start auto-scroll when page loads
+window.addEventListener('load', function() {
+  resetAutoScroll();
+});
+
+// Pause auto-scroll on hover
+const carousel = document.querySelector('.projects-carousel');
+if (carousel) {
+  carousel.addEventListener('mouseenter', function() {
+    clearInterval(autoScrollInterval);
+  });
+  
+  carousel.addEventListener('mouseleave', function() {
+    resetAutoScroll();
+  });
+}
 
 // Update nav on scroll
 window.addEventListener('scroll', function() {

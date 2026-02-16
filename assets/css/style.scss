@@ -173,6 +173,22 @@ nav a.active::after {
   color: white;
 }
 
+.open-to-work-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(0, 200, 0, 0.15);
+  border: 2px solid #00ff00;
+  border-radius: 25px;
+  color: #00ff00;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 10px 0 20px 0;
+  animation: fadeInUp 0.8s ease 0.3s, pulse 2s ease-in-out infinite;
+  animation-fill-mode: both;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
 .hero-description {
   font-size: 1.1rem;
   margin-bottom: 30px;
@@ -460,12 +476,60 @@ nav a.active::after {
 }
 
 /* Projects Grid */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
+.projects-carousel-container {
+  position: relative;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 60px;
+}
+
+.projects-carousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  padding: 20px 0;
+}
+
+.projects-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-color);
+  color: black;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.carousel-btn:hover {
+  background: var(--secondary-color);
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
 }
 
 .project-card {
@@ -479,6 +543,9 @@ nav a.active::after {
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  min-width: 500px;
+  max-width: 500px;
+  flex-shrink: 0;
 }
 
 .project-card::before {
@@ -787,7 +854,21 @@ nav a.active::after {
     left: -36px;
   }
   
-  .projects-grid,
+  .projects-carousel-container {
+    padding: 0 50px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .project-card {
+    min-width: 400px;
+    max-width: 400px;
+  }
+  
   .education-grid {
     grid-template-columns: 1fr;
   }
@@ -830,6 +911,22 @@ nav a.active::after {
   .btn {
     width: 100%;
     max-width: 250px;
+  }
+
+  .projects-carousel-container {
+    padding: 0 40px;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+
+  .project-card {
+    min-width: 300px;
+    max-width: 300px;
+    padding: 20px;
   }
 }
 
