@@ -374,14 +374,6 @@ layout: default
   </div>
 </section>
 
-<div class="scroll-indicator"></div>
-
-<footer class="footer">
-  <div class="container">
-    <p>&copy; 2026 Sahil Fayaz. Built with Jekyll</p>
-  </div>
-</footer>
-
 <script>
 // Smooth scrolling for navigation
 document.querySelectorAll('nav a').forEach(anchor => {
@@ -396,11 +388,6 @@ document.querySelectorAll('nav a').forEach(anchor => {
     document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
     this.classList.add('active');
   });
-});
-
-// Scroll indicator
-document.querySelector('.scroll-indicator').addEventListener('click', function() {
-  window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
 });
 
 // Update nav on scroll
