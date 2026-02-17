@@ -438,7 +438,10 @@ function autoScrollProjects() {
 
 function resetAutoScroll() {
   clearInterval(autoScrollInterval);
-  autoScrollInterval = setInterval(autoScrollProjects, 5000);
+  // Disable auto-scroll on mobile devices
+  if (window.innerWidth > 768) {
+    autoScrollInterval = setInterval(autoScrollProjects, 5000);
+  }
 }
 
 // Check if projects section is in view
@@ -455,7 +458,7 @@ function isProjectsInView() {
 
 // Start/stop auto-scroll based on section visibility
 function checkProjectsVisibility() {
-  if (isProjectsInView()) {
+  if (isProjectsInView() && window.innerWidth > 768) {
     if (!autoScrollInterval) {
       resetAutoScroll();
     }
@@ -471,6 +474,11 @@ window.addEventListener('scroll', checkProjectsVisibility);
 // Initial check on load
 window.addEventListener('load', checkProjectsVisibility);
 
+// Re-check on window resize
+window.addEventListener('resize', function() {
+  checkProjectsVisibility();
+});
+
 // Pause auto-scroll on hover
 const carousel = document.querySelector('.projects-carousel');
 if (carousel) {
@@ -480,9 +488,19 @@ if (carousel) {
   });
   
   carousel.addEventListener('mouseleave', function() {
-    if (isProjectsInView()) {
+    if (isProjectsInView() && window.innerWidth > 768) {
       resetAutoScroll();
     }
+  });
+
+  // Enable touch scrolling on mobile
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  carousel.addEventListener('touchstart', function(e) {
+    clearInterval(autoScrollInterval);
+    autoScrollInterval = null;
   });
 }
 
