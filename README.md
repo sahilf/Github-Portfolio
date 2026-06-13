@@ -1,186 +1,131 @@
-# Sahil Fayaz - Portfolio Website
+# Sahil Fayaz — Portfolio
 
-A modern, responsive portfolio website built with Jekyll and hosted on GitHub Pages.
+A personal portfolio website built with [Jekyll](https://jekyllrb.com/) and hosted on GitHub Pages. It features a custom, fully responsive **"Dark Knight"** theme — deep blacks, gunmetal panels, and a restrained bat-signal gold accent — designed to read as professional first.
 
-## 📚 Education
+<p>
+  <img alt="Jekyll" src="https://img.shields.io/badge/Jekyll-CC0000?logo=jekyll&logoColor=white">
+  <img alt="GitHub Pages" src="https://img.shields.io/badge/GitHub%20Pages-222222?logo=githubpages&logoColor=white">
+  <img alt="SCSS" src="https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white">
+  <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+</p>
 
-| Institution | Degree | Duration | GPA |
-|-------------|--------|----------|-----|
-| Texas A&M University | Master of Computer Science | Aug 2024 - Present | 4/4 |
-| PES University | Bachelor of Technology, Electronics and Communication Engineering | Aug 2017 - May 2021 | 9.24/10 |
+**Live site:** https://sahilf.github.io/Github-Portfolio/
 
-## 🌟 Features
+---
 
-- **Modern Design**: Clean, professional layout with gradient hero section
-- **Responsive**: Fully responsive design that works on all devices
-- **Sections**:
-  - Hero/Introduction
-  - About Me
-  - Technical Skills
-  - Work Experience (Timeline view)
-  - Featured Projects
-  - Education
-  - Leadership & Community
-  - Contact Information
-- **Smooth Animations**: Fade-in effects and hover interactions
-- **SEO Optimized**: Meta tags and sitemap for better search visibility
-- **Fast Loading**: Optimized CSS and minimal JavaScript
+## Overview
 
-## 💻 Skills
+A single-page portfolio that presents my background, experience, projects, and education, plus a dedicated long-form projects page. It is intentionally lightweight — static HTML/SCSS with a small amount of vanilla JavaScript, no front-end framework or build step beyond Jekyll.
 
-### Languages & Softwares
-Java, Python, Matlab, HTML/CSS, MySQL, PostgreSQL, Neo4j, Mariadb, Springboot, Angular, Ruby, Rails, Flutter
+### Highlights
 
-### Java Skills & Libraries
-REST APIs, Microservices Architecture, Spring Security, Messaging Systems
+- **Custom theme** — hand-written SCSS with CSS-variable design tokens for color, spacing, and typography
+- **Responsive** — adapts cleanly from large desktops down to mobile, with a collapsible navigation menu
+- **Sticky navigation** — transparent over the hero, condenses to a solid bar on scroll, with scroll-spy active states
+- **Subtle motion** — reveal-on-scroll animations that respect `prefers-reduced-motion`
+- **SEO-ready** — meta tags via `jekyll-seo-tag` and an auto-generated `sitemap.xml`
+- **Custom favicon** — gold bat emblem on a dark tile, with an Apple touch icon
 
-### Tools
-Jenkins, Bitbucket, GitHub, JIRA, Docker
+---
 
-## 🚀 Quick Start
+## Tech Stack
 
-### Prerequisites
-- Ruby (2.7 or higher)
-- Bundler gem
+| Area        | Tooling                                            |
+| ----------- | -------------------------------------------------- |
+| Generator   | Jekyll (static site generator)                     |
+| Hosting     | GitHub Pages (`github-pages` gem)                  |
+| Styling     | SCSS                                               |
+| Typography  | Oswald (display) + Inter (body), via Google Fonts  |
+| Plugins     | `jekyll-seo-tag`, `jekyll-sitemap`                 |
 
-### Local Development
+---
 
-1. **Install dependencies:**
-   ```bash
-   bundle install
-   ```
-
-2. **Run locally:**
-   ```bash
-   bundle exec jekyll serve
-   ```
-
-3. **View in browser:**
-   Open `http://localhost:4000` in your browser
-
-### Deploying to GitHub Pages
-
-1. **Push to GitHub:**
-   ```bash
-   git add .
-   git commit -m "Updated portfolio"
-   git push origin main
-   ```
-
-2. **Enable GitHub Pages:**
-   - Go to your repository settings
-   - Navigate to "Pages" section
-   - Select source: `main` branch
-   - Your site will be live at `https://yourusername.github.io/portfolio`
-
-## 🚀 Recent Projects
-
-### SpyderStack (Apr 2025 - Present)
-- Built a distributed web crawler using goroutines and Redis pub/sub to enable scalable, concurrent scraping of job listings.
-- Achieved 100K+ job entries crawled daily from over 200+ company career pages in under 15 minutes using an 8-core setup.
-- Optimized data ingestion pipeline with batch based lazy MongoDB writes and a lightweight scraping framework, improving throughput and reducing system load.
-
-### United States Space Force (USSF) GRC Control (Aug 2024 - Dec 2024)
-- Developed a Ruby on Rails-based SaaS application for the USSF, enabling cybersecurity teams to efficiently scan and assess Docker images for vulnerabilities, ensuring compliance with NIST SP800-53 controls.
-- Implemented advanced access control and versioning features, allowing USSF to track and manage Docker image vulnerabilities over time, ensuring continuous GRC compliance and security across environments.
-
-### Lunch Calorie Prediction (Aug 2024 - Dec 2024)
-- Developed a deep learning pipeline to predict calorie counts from lunch food images, integrating multimodal data (glucose levels, microbiome, demographics) for personalized nutrition predictions.
-- Applied contrastive learning with CLIP models to fuse image and numerical embeddings, achieving accurate calorie predictions with Root Mean Squared Relative Error (RMSRE).
-  
-### Automation In Agricultural Field Using Decentralised Framework (Aug 2020 - May 2021)
-- Designed a decentralized system, where bots autonomously allocate areas among themselves, generate paths within their designated zones, and traverse within them.
-- Introduced a novel path-planning method for optimal navigation efficiency within a polygon. Published at IEEE International Conference on Electronics, Computing, and Communication Technologies (CONECCT), 2021. [Link](https://ieeexplore.ieee.org/document/9622347)
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio/
 ├── _layouts/
-│   └── default.html          # Main layout template
+│   └── default.html      # Base layout: <head>, SEO, fonts, favicon, nav shell
 ├── assets/
-│   └── css/
-│       └── style.scss        # Custom styles
-├── _config.yml               # Jekyll configuration
-├── index.html                # Homepage
-├── projects.md               # Detailed projects page
-├── Gemfile                   # Ruby dependencies
-└── README.md                 # This file
+│   ├── css/
+│   │   └── style.scss    # Full custom "Dark Knight" theme
+│   └── img/              # Bat emblem logos + favicons
+├── _config.yml           # Jekyll & SEO configuration
+├── index.html            # Single-page portfolio (all sections)
+├── projects.md           # Detailed projects page (/projects/)
+├── Gemfile               # Ruby dependencies
+└── README.md
 ```
-
-## 🎨 Customization
-
-## 🏆 Achievements
-- Gold Medal for securing 8th rank in Electronics & Communication Department, PES University.
-- Second Place in Texas A&M's Tidal Hackathon among 300 student participants for building a contextual E-Reader.
-
-## 👥 Leadership
-
-### Rotaract Club of PES University
-**Secretary & Director of Operations** (Aug 2019 - Jun 2021)
-- As an Operations Director, responsible for logistics associated with various projects such as SUKH (Share yoUr Knowledge Happily) – a fundraiser for donating books to underprivileged students, The Gutsy Entrepreneur – a flagship business ideathon, Trek To Educate – a fundraiser trek conducted for computer literacy in rural areas.
-- Volunteered for the Polio Vaccination Drive on National Immunisation Day.
-- As a Secretary, worked on the Literacy Day bulletin and helped to organize and coordinate over 50 events in 2020-21.
-
-### Adding Your Photo
-
-1. Add your headshot image to `assets/img/` folder
-2. Uncomment and update in `_config.yml`:
-   ```yaml
-   logo: /assets/img/your-photo.png
-   ```
-
-### Updating Content
-
-- **Personal Info**: Edit `_config.yml` for basic information
-- **Homepage**: Edit `index.html` to update sections
-- **Projects**: Edit `projects.md` to add more project details
-- **Styling**: Modify `assets/css/style.scss` for design changes
-
-### Color Scheme
-
-Colors are defined in CSS variables in `style.scss`:
-```css
-:root {
-  --primary-color: #2563eb;
-  --secondary-color: #1e40af;
-  /* Modify these to change the color scheme */
-}
-```
-
-## 🔧 Technologies Used
-
-- **Jekyll**: Static site generator
-- **GitHub Pages**: Hosting
-- **HTML5/CSS3**: Structure and styling
-- **SCSS**: CSS preprocessing
-- **Markdown**: Content formatting
-
-## 📱 Responsive Breakpoints
-
-- Desktop: 1200px+
-- Tablet: 768px - 1199px
-- Mobile: < 768px
-
-## 🎯 Future Enhancements
-
-- [ ] Add blog section
-- [ ] Integrate Google Analytics
-- [ ] Add dark mode toggle
-- [ ] Include resume download
-- [ ] Add project filtering
-- [ ] Implement contact form with backend
-
-## 📧 Contact
-
-- **Email**: sahilf2085@gmail.com / sahil.fayaz8899@gmail.com
-- **LinkedIn**: [linkedin.com/in/sahil-f](https://www.linkedin.com/in/sahil-f/)
-- **GitHub**: [github.com/sahilfayaz](https://github.com/sahilfayaz)
-
-## 📄 License
-
-This project is open source and available under the MIT License.
 
 ---
 
-**Note**: Remember to update your GitHub username in the URLs and configure your repository settings for GitHub Pages deployment.
+## Getting Started
+
+### Prerequisites
+
+- Ruby 2.7 or higher
+- [Bundler](https://bundler.io/) (`gem install bundler`)
+
+### Run locally
+
+```bash
+# 1. Install dependencies
+bundle install
+
+# 2. Start the dev server with live reload
+bundle exec jekyll serve --livereload
+
+# 3. Open the site
+#    http://localhost:4000
+```
+
+> Changes to `_config.yml` require a server restart; all other files reload automatically.
+
+---
+
+## Deployment
+
+The site deploys automatically via **GitHub Pages**. Push to the default branch and GitHub builds and publishes the site using the `github-pages` gem — no separate CI step required.
+
+```bash
+git add .
+git commit -m "Update portfolio"
+git push origin main
+```
+
+To configure: open the repository's **Settings → Pages** and set the source branch.
+
+---
+
+## Customization
+
+| What                | Where                                                       |
+| ------------------- | ----------------------------------------------------------- |
+| Page content        | `index.html` (sections) and `projects.md` (projects page)   |
+| Site metadata & SEO | `_config.yml`                                               |
+| Colors & typography | CSS variables in the `:root` block of `assets/css/style.scss` |
+| Logos & favicons    | `assets/img/`                                               |
+
+The color scheme is driven by a small set of tokens — adjust these to re-skin the entire site:
+
+```scss
+:root {
+  --bg:   #0a0b0d;   /* base background */
+  --ink:  #eceef2;   /* primary text   */
+  --gold: #ffce3a;   /* accent          */
+}
+```
+
+---
+
+## License
+
+Released under the [MIT License](https://opensource.org/licenses/MIT). Content and personal information remain © Sahil Fayaz.
+
+---
+
+## Contact
+
+- **Email:** sahil.fayaz8899@gmail.com
+- **LinkedIn:** [linkedin.com/in/sahil-f](https://www.linkedin.com/in/sahil-f/)
+- **GitHub:** [github.com/sahilf](https://github.com/sahilf)
